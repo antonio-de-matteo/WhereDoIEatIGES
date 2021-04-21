@@ -27,7 +27,7 @@ public class AttivitaBean {
 		this.mappa = mappa;
 		this.personaUsername = personaUsername;
 	}
-	
+	//AntonioDeMatteo, sei un coglione
 	public AttivitaBean() {}
 
 	public AttivitaBean(int idAttivita) {
