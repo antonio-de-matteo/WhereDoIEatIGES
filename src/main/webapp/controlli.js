@@ -30,7 +30,7 @@ function control(form)
 	 return(false);
 	}
 	
-	var regexnome="^[a-zA-Z]+(?:[\s'][a-zA-Z]+)*$";
+	var regexnome="^[a-zA-Z]+(( ?)('?)([a-zA-Z]+)*)*$";
 	if(!($("#nome").val().match(regexnome))) {
 		$("#errorNome").text('Formato nome non corretto').css({"color":"red"});
 		 document.getElementById("nome").focus();
@@ -81,9 +81,9 @@ function control(form)
 	 return(false);
 	}
 	
-	var regexuser="^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$";
+	var regexuser="^[A-Za-z]+[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$";
 	if(!($("#username").val().match(regexuser))) {
-		$("#errorU").text('Formato username non corretto').css({"color":"red"});
+		$("#errorU").text('Formato username non corretto\nProbabilmente hai inserito un username che termina con - o _ , riprova').css({"color":"red"});
 		 document.getElementById("password").focus();
 		 return(false);
 	}
