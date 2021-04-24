@@ -35,15 +35,15 @@
             <div class="col-md-6 col-lg-7 text-center text-md-right">
   
               <!-- Facebook -->
-                <a href="https://www.facebook.com/ElDiezShop/?ref=bookmarks" id="img" onMouseOver="cambiaFacebook()" onMouseOut="ricambiaFacebook()"><img id="facebook" src="foto/facebook2.png" class="fb-ic">
+                <a href="https://www.facebook.com/WheredoiEat-103969891841530" id="img" onMouseOver="cambiaFacebook()" onMouseOut="ricambiaFacebook()"><img id="facebook" src="foto/facebook2.png" class="fb-ic">
                 <i class="fab fa-facebook-f white-text mr-4"> </i>
               </a>
               <!--Youtube -->
-                  <a href="https://www.youtube.com/watch?v=lH1m5zOImJU" id="img" onMouseOver="cambiaYouTube()" onMouseOut="ricambiaYouTube()"><img id="youtube" src="foto/youtube2.png"  class="fb-ic">
+                  <a href="https://www.youtube.com/" id="img" onMouseOver="cambiaYouTube()" onMouseOut="ricambiaYouTube()"><img id="youtube" src="foto/youtube2.png"  class="fb-ic">
                <i class="fab fa-linkedin-in white-text mr-4"> </i>
                </a>
               <!--Instagram-->
-                  <a href="https://www.instagram.com/eldiezshop2019" id="img" onMouseOver="cambiaInstagram()" onMouseOut="ricambiaInstagram()"><img id="instagram" src="foto/Instagram2.png"  class="fb-ic" >
+                  <a href="https://www.instagram.com/" id="img" onMouseOver="cambiaInstagram()" onMouseOut="ricambiaInstagram()"><img id="instagram" src="foto/Instagram2.png"  class="fb-ic" >
             <i class="fab fa-instagram white-text"> </i>
           </a>
           <!-- Grid column -->
@@ -67,7 +67,7 @@
             <!-- Content -->
             <h6 class="text-uppercase font-weight-bold">CHI SIAMO</h6>
             <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-            <p>Salve,siamo quattro ragazzi appassionati di Informatica e studenti del Dipartimento di Informatica di UNISA. Abbiamo sviluppato questo sito con lo scopo di fornire ai nostri clienti un modo comodo di conoscere attività e gustare i loro cibi in base ad un sistema di recensioni e valutazioni su queste ultime.</p>
+            <p>Salve,siamo due studenti del Dipartimento di Informatica di UNISA. Abbiamo sviluppato questo sito con lo scopo di fornire ai nostri clienti un modo comodo di conoscere attività e gustare i loro cibi in base ad un sistema di recensioni e valutazioni su queste ultime.</p>
   
           </div>
           <!-- Grid column -->
@@ -79,17 +79,12 @@
             <h6 class="text-uppercase font-weight-bold">AIUTO</h6>
             <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
             <p>
-              <a class="linkfoot" href="terminiecondizioni.html">Termini & Condizioni</a>
+              <a class="linkfoot" href="terminiCondizioni.jsp">Termini & Condizioni</a>
             </p>
             <p>
               <a class="linkfoot" href="policy.html">Privacy Policy</a>
             </p>
-            <p>
-              <a class="linkfoot" href="recesso.html">Diritto di Recesso</a>
-            </p>
-            <p>
-              <a class="linkfoot" href="faq.html">FAQ</a>
-            </p>
+
   
           </div>
           <!-- Grid column -->
@@ -105,9 +100,7 @@
             </p>
             <p>
               <a class="linkfoot" href="registrazione.jsp">Registrati</a>
-            </p>
-            <p>
-              <a class="linkfoot" href="taglia home.html">Tabella delle Taglie</a>
+
               
             </p>
   
@@ -125,7 +118,7 @@
             <i class="fas fa-home mr-3"></i> <a class="linkfoot" href="https://www.google.it/maps/place/Via+Roma,+Salerno+SA/@40.6783183,14.756089,17z/data=!3m1!4b1!4m5!3m4!1s0x133bc22609d11f13:0x7a65ed64b91a7408!8m2!3d40.6783183!4d14.758283">Salerno,Via Roma,156</a></p>
           <p>
             <img src="foto/email.png" alt="volevi">
-            <i class="fas fa-envelope mr-3"></i><a class="linkfoot" href="https://accounts.google.com/signin/v2/sl/pwd?hl=it&service=mail&flowName=GlifWebSignIn&flowEntry=ServiceLogin">wheredoieat_shop@gmail.com</a> </p>
+            <i class="fas fa-envelope mr-3"></i><a class="linkfoot" href="invioemail.jsp">Invia un Email</a> </p>
           <p>
             <img src="foto/phone.png" alt="volevi">
             <i class="fas fa-phone mr-3"></i> +39 348 32 09 519 </p>
