@@ -9,6 +9,7 @@
 <head>
     <title>Invio Email</title>
     <link rel="stylesheet" href="STILI/schedaFooter.css">
+    <link rel="stylesheet" href="STILI/email.css">
     <link rel="icon" href="foto/logoDef.png" sizes="9x9">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,24 +18,37 @@
 </head>
 <body>
 <%@ include file="header.jsp"%>
-<div class="center">
+<section>
+    <div class="container">
+        <form action="https://formspree.io/f/mqkwaovg" method="POST" id="my-form">
 
-    <h1 align="center"> Contattaci</h1>
+            <div class="form-group">
+                <label for="firstName"> First Name</label>
+                <input type="text" id="firstName" name="firstName">
+            </div>
 
-    <form action="mailto:wheredoieat@gmail.com" method="post" enctype="text/plain">
-        Nome:<br>
-        <input type="text" name="name" placeholder="Inserisci il tuo nome"><br>
-        E-mail:<br>
-        <input type="text" name="mail" placeholder="Inserisci la tua email"><br>
-        Messaggio:<br>
-        <textarea name="comment" rows="4" cols="50" placeholder="Inserici il tuo messaggio">  </textarea>
-        <br><br>
-        <input type="submit" value="Invia">
-        <input type="reset" value="Ripristina">
-    </form>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName">
+            </div>
 
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email">
+            </div>
+
+            <div class="form-group">
+                <label for="massage">Massage</label>
+                <textarea name="massage" id="massage" cols="30" rows="10"></textarea>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
     </div>
+    <div id="status"></div>
+</section>
 
+<script src="js/bootstrap.min.js"></script>
 <%@ include file="footer.jsp"%>
 </body>
 </html>

@@ -82,7 +82,7 @@
               <a class="linkfoot" href="terminiCondizioni.jsp">Termini & Condizioni</a>
             </p>
             <p>
-              <a class="linkfoot" href="policy.html">Privacy Policy</a>
+              <a class="linkfoot" href="privacy.jsp">Privacy Policy</a>
             </p>
 
   
