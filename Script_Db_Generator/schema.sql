@@ -32,6 +32,7 @@ CREATE TABLE `attivita` (
   `indirizzo` varchar(40) NOT NULL,
   `telefono` varchar(20) NOT NULL,
   `numPosti` int(5) NOT NULL,
+  `Categoria` varchar(255)  NOT NULL,
   `mappa` varchar(400) DEFAULT NULL,
   `personaUsername` varchar(32) NOT NULL,
   PRIMARY KEY (`idAttivita`),
