@@ -10,14 +10,16 @@ import bean.AttivitaBean;
 import server.DriverManagerConnectionPool;
 
 public class AttivitaDAO {
-	
-	public synchronized void doSave(AttivitaBean a) throws SQLException {
+
+
+
+    public synchronized void doSave(AttivitaBean a) throws SQLException {
 
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
 		String insertSQL = "insert into attivita" 
-				+ " (nome, comune, oraApertura, oraChiusura, giornoChiusura, indirizzo, telefono, numPosti, mappa, personaUsername) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ " (nome, comune, oraApertura, oraChiusura, giornoChiusura, indirizzo, telefono, numPosti, mappa, personaUsername, Categoria) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
 
 		try {
 			connection = DriverManagerConnectionPool.getConnection();
@@ -32,6 +34,7 @@ public class AttivitaDAO {
 			preparedStatement.setInt(8, a.getNumPosti());
 			preparedStatement.setString(9, a.getMappa());
 			preparedStatement.setString(10, a.getPersonaUsername());
+			preparedStatement.setString(11,a.getCategoria());
 			preparedStatement.executeUpdate();
             
 			connection.commit();
@@ -244,7 +247,53 @@ public class AttivitaDAO {
 		}
 		return 0;
 	 }
-	
+	public static ArrayList<AttivitaBean> doRetrieveByCategoria(String categoria) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		ArrayList<AttivitaBean> a = new ArrayList<AttivitaBean>();
+
+		String selectSQL = "SELECT * FROM attivita WHERE Categoria = ? ;";
+
+
+		try {
+			connection = DriverManagerConnectionPool.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setString(1, categoria);
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+				AttivitaBean bean = new AttivitaBean();
+
+
+				bean.setIdAttivita(rs.getInt("idAttivita"));
+				bean.setNome(rs.getString("nome"));
+				bean.setComune(rs.getString("comune"));
+				bean.setOraApertura(rs.getInt("oraApertura"));
+				bean.setOraChiusura(rs.getInt("oraChiusura"));
+				bean.setGiornoChiusura(rs.getString("giornoChiusura"));
+				bean.setIndirizzo(rs.getString("indirizzo"));
+				bean.setTelefono(rs.getString("telefono"));
+				bean.setNumPosti(rs.getInt("numPosti"));
+				bean.setMappa(rs.getString("mappa"));
+				bean.setPersonaUsername(rs.getString("personaUsername"));
+				bean.setCategoria(rs.getString("Categoria"));
+
+
+				a.add(bean);
+			}
+		}
+		finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return a;
+	}
 	
 	public static  ArrayList<AttivitaBean> doRetrieveByComune(String comune) throws SQLException {
 		Connection connection = null;

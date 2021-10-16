@@ -60,6 +60,7 @@ public class AggiungiAttivitaControl extends HttpServlet {
 			String comune = request.getParameter("comune");
 			String telefono = request.getParameter("telefono");
 			String giornoChiusura = request.getParameter("giornoChiusura");
+			String categoria = request.getParameter("cat");
 			
 			String p = request.getParameter("posti");
 			int posti = Integer.parseInt(p);
@@ -70,7 +71,7 @@ public class AggiungiAttivitaControl extends HttpServlet {
 			
 			AttivitaBean att = new AttivitaBean(0,nome, comune,a,c,
 					giornoChiusura,indirizzo,telefono, posti, mappa,
-					id);
+					id,categoria);
 			AttivitaDAO d;
 			if(adao!=null) {
 				d=adao;
@@ -104,8 +105,11 @@ public class AggiungiAttivitaControl extends HttpServlet {
 	public void setFDao(FotoDAO fdao) {
 		this.fdao=fdao;
 	}
+
 	public void setADao(AttivitaDAO adao) {
 		this.adao=adao;
 	}
+
+
 
 }

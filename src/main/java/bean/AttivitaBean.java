@@ -12,6 +12,8 @@ public class AttivitaBean {
     private int numPosti;
     private String mappa;
     private String personaUsername;
+    private String categoria;
+
 	public AttivitaBean(int idAttivita, String nome, String comune, int oraApertura, int oraChiusura,
 			String giornoChiusura, String indirizzo, String telefono, int numPosti, String mappa,
 			String personaUsername) {
@@ -27,8 +29,34 @@ public class AttivitaBean {
 		this.mappa = mappa;
 		this.personaUsername = personaUsername;
 	}
-	//AntonioDeMatteo, sei un coglione
-	public AttivitaBean() {}
+
+
+	public String getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
+
+	public AttivitaBean(int idAttivita, String nome, String comune, int oraApertura, int oraChiusura, String giornoChiusura, String indirizzo, String telefono, int numPosti, String mappa, String personaUsername, String categoria) {
+		this.idAttivita = idAttivita;
+		this.nome = nome;
+		this.comune = comune;
+		this.oraApertura = oraApertura;
+		this.oraChiusura = oraChiusura;
+		this.giornoChiusura = giornoChiusura;
+		this.indirizzo = indirizzo;
+		this.telefono = telefono;
+		this.numPosti = numPosti;
+		this.mappa = mappa;
+		this.personaUsername = personaUsername;
+		this.categoria = categoria;
+	}
+
+	public AttivitaBean() {
+
+	}
 
 	public AttivitaBean(int idAttivita) {
 	     this.idAttivita=idAttivita;

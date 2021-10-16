@@ -42,7 +42,7 @@
     		  alert("Il campo nome non può avere lunghezza >20");
     		  return false;
     	  } 
-    	  if(  $("#nome").val().length<1 )  {
+    	  if($("#nome").val().length<1 )  {
               alert("Il campo nome non può essere vuoto");
     		  return false;
     	  }
@@ -191,11 +191,18 @@
                     <label for="inputMessage">Foto del profilo:&nbsp&nbsp</label>
                     <input type="text" name="foto" class="BORDONERO">
                     <br>
+                    <label for="inputMessage">Categoria:&nbsp&nbsp</label>
+                    <select name="cat" class="BORDONERO" required>
+                        <option value="Ristorante">Ristorante</option>
+                        <option value="Pizzeria">Pizzeria</option>
+                        <option value="Pub">Pub</option>
+                        <option value="FastFood">FastFood</option>
+                        <option value="Vegan">Vegan</option>
+                        <option value="Rosticceria">Rosticceria</option>
+                    </select>
                 </div><br>
                     <button type="submit" class="btn btn-dark btn-lg float-left pren">Conferma</button>
                 <br>
-           
-
             </form>
         </div>
     </div>

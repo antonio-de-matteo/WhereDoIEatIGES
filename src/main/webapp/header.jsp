@@ -52,15 +52,17 @@
   <div class="input-group-append">
       <button class="btn btn-outline-secondary dropdown-toggle" id="locali" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Cosa vuoi mangiare?</button>
       <div class="dropdown-menu">
-        <a class="dropdown-item tipi" href="">Ristorante</a>
+        <a class="dropdown-item tipi" href="RicercaControl?action=SearchCat&cat=Ristorante">Ristorante</a>
         <div role="separator" class="dropdown-divider"></div>
-        <a class="dropdown-item tipi" href="#">Pizzeria</a>
+        <a class="dropdown-item tipi" href="RicercaControl?action=SearchCat&cat=Pizzeria">Pizzeria</a>
         <div role="separator" class="dropdown-divider"></div>
-        <a class="dropdown-item tipi" href="#">Rosticceria</a>
+        <a class="dropdown-item tipi" href="RicercaControl?action=SearchCat&cat=Rosticceria">Rosticceria</a>
         <div role="separator" class="dropdown-divider"></div>
-        <a class="dropdown-item tipi" href="#">Pub</a>
+        <a class="dropdown-item tipi" href="RicercaControl?action=SearchCat&cat=Pub">Pub</a>
         <div role="separator" class="dropdown-divider"></div>
-        <a class="dropdown-item tipi" href="#">FastFood</a>
+        <a class="dropdown-item tipi" href="RicercaControl?action=SearchCat&cat=FastFood">FastFood</a>
+        <div role="separator" class="dropdown-divider"></div>
+        <a class="dropdown-item tipi" href="RicercaControl?action=SearchCat&cat=Vegan">Vegan</a>
       </div>
       </ul>
   </div>
