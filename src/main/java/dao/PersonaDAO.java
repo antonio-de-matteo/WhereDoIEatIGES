@@ -1,5 +1,9 @@
 package dao;
 
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,14 +14,43 @@ import bean.PersonaBean;
 import server.DriverManagerConnectionPool;
 
 public class PersonaDAO {
-	
-	public synchronized void doSave(PersonaBean p) throws SQLException {
+	class GFG {
+		public byte[] getSHA(String input) throws NoSuchAlgorithmException {
+			// Static getInstance method is called with hashing SHA
+			MessageDigest md = MessageDigest.getInstance("SHA-256");
 
+			// digest() method called
+			// to calculate message digest of an input
+			// and return array of byte
+			return md.digest(input.getBytes(StandardCharsets.UTF_8));
+		}
+
+		public String toHexString(byte[] hash) {
+			// Convert byte array into signum representation
+			BigInteger number = new BigInteger(1, hash);
+
+			// Convert message digest into hex value
+			StringBuilder hexString = new StringBuilder(number.toString(16));
+
+			// Pad with leading zeros
+			while (hexString.length() < 32) {
+				hexString.insert(0, '0');
+			}
+
+			return hexString.toString();
+		}
+	}
+	
+	public synchronized void doSave(PersonaBean p) throws SQLException, NoSuchAlgorithmException {
+
+		GFG gfg = new GFG();
+		String s1 = "MisterSessa69";
+		System.out.println("\n" + s1 + " : " + gfg.toHexString(gfg.getSHA(s1)));
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
 		String insertSQL = "insert into persona" 
-				+ " (username, nome, cognome , email, telefono, citta, tipo, comune, password) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ " (username, nome, cognome , email, telefono, citta, tipo, comune, password) values (?, ?, ?, ?, ?, ?, ?, ?, sha(?))";
 
 		try {
 			connection = DriverManagerConnectionPool.getConnection();
@@ -209,7 +242,7 @@ public class PersonaDAO {
 			PersonaBean p = new PersonaBean(username); 
 			conn = DriverManagerConnectionPool.getConnection();
 			ps = conn.
-					prepareStatement("SELECT * FROM wheredoieat.persona WHERE username = ? AND password = ?");
+					prepareStatement("SELECT * FROM wheredoieat.persona WHERE username = ? AND password = sha(?)");
 			ps.setString(1, username);
 			ps.setString(2, password);
 					
@@ -287,5 +320,325 @@ public class PersonaDAO {
 		}
 		return null;
 	 }
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
