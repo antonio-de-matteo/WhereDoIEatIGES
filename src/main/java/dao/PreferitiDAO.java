@@ -171,6 +171,46 @@ public class PreferitiDAO {
 		}
 		return p;
 	}
+
+	public synchronized ArrayList<PreferitiBean> doRetrieveByUser(String username) throws SQLException {
+		ArrayList<PreferitiBean> ret = new ArrayList<>();
+		Connection conn = null;
+		PreparedStatement ps = null;
+		try {
+
+			conn = DriverManagerConnectionPool.getConnection();
+			ps = conn.
+					prepareStatement("SELECT * FROM wheredoieat.preferiti WHERE personaUsername = ? ");
+			ps.setString(1, username);
+
+			ResultSet res = ps.executeQuery();
+
+			// 4. Prendi il risultato
+			if(res.next())
+			{
+				while(res.next()) {
+					PreferitiBean p = new PreferitiBean();
+					p.setIdPref(res.getInt("idPref"));
+					p.setPersonaUsername(res.getString("personaUsername"));
+					p.setAttivitaIDAttivita(res.getInt("attivitaIDAttivita"));
+					ret.add(p);
+				}
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			try {
+				ps.close();
+				DriverManagerConnectionPool.releaseConnection(conn);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return ret;
+	}
 	
 	
 }
