@@ -1,6 +1,7 @@
 package server;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
@@ -85,7 +86,7 @@ public class ServletRegistrazione extends HttpServlet {
 			      RequestDispatcher rd=request.getRequestDispatcher("login.jsp");
 			      rd.forward(request, response);
 			   }
-		} catch (SQLException e) {
+		} catch (SQLException | NoSuchAlgorithmException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
