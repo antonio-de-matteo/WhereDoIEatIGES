@@ -60,11 +60,14 @@
      if(user!=null) {
   %>
   <button id="buttonPrenotazione" name="prenota" class="btn btn-dark btn-lg float-right pren" onClick="prenota()">prenota</button>
+      <div class="card-bottom">
+          <hr>
+          <a href="ServletPreferiti?Codice=<%= a.getIdAttivita() %>" class="btn btn-primary mybutton btn-danger">Aggiungi ai preferiti</a>
+      </div>
   <%} else { %>
   <button id="buttonPrenotazione" name="prenota" class="btn btn-dark btn-lg float-right pren" > <a href="login.jsp">prenota</a></button>
   <%} %>
     <div class="container dark-grey-text mt-5" id="attivita" onClick="chiudiDiv()">
-       
        <%
        Boolean giornoChiusura=(Boolean)request.getAttribute("giornoChiusura");
              if(giornoChiusura!=null) {
