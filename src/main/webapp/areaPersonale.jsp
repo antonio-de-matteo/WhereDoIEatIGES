@@ -56,6 +56,12 @@
 						data-toggle="tab" class="nav-link menu">Modifica Dati Personali</a></li>
 						<li class="nav-item menu"><a href="recensioni?user=<%=utq.getUsername()%>" data-target="#recensioni"
 						data-toggle="tab" class="nav-link menu">Vecchi Commenti</a></li>
+					<% if(utq.getTipo()==2){
+				%>
+					<li class="nav-item menu"><a href="" data-target="#Myrecensioni"
+												 data-toggle="tab" class="nav-link menu">Recensioni miei locali</a></li>
+
+					<%}%>
 				</ul>
 				<div class="tab-content  p-b-3">
 					<div class="tab-pane" id="profilo">
@@ -73,6 +79,46 @@
 							</div>
 						</div>
 						<!--/row-->
+					</div>
+					<div class="tab-pane" id="Myrecensioni">
+						<br>
+						<h4 class="m-y-2 prova"><a id="Myrecensione" href="recensioni?action=g&user=<%=utq.getUsername()%>">Recensioni dei miei ristoranti</a></h4>
+						<br>
+						<table id="tabl">
+							<tr>
+								<th>Valutazione</th>
+								<th>Commento</th>
+								<th>Locale</th>
+								<th></th>
+							</tr>
+							<%
+								ArrayList<?> recensioni1 = (ArrayList<?>) request.getAttribute("recensioni");
+								AttivitaDAO daor1=new AttivitaDAO();
+								ArrayList<AttivitaBean> listr1=new ArrayList<AttivitaBean>();
+								listr1=daor1.doRetrieveAll();
+								if (recensioni1 != null && recensioni1.size() != 0) {
+									Iterator<?> it = recensioni1.iterator();
+									while (it.hasNext()) {
+							%>
+							<tr>
+								<%
+									RecensioneBean bean = (RecensioneBean) it.next();
+								%>
+								<td id="td"><%=bean.getValutazione()%></td>
+								<td id="td"><%=bean.getCommento() %></td>
+								<%String nome="";
+									for(AttivitaBean b:listr1)
+									{
+										if(bean.getAttivitaIDAttivita()==b.getIdAttivita())
+											nome=b.getNome();
+									} %>
+								<td id="td"><%=nome%></td>
+							</tr>
+							<%
+									}
+								}
+							%>
+						</table>
 					</div>
 					<div class="tab-pane" id="recensioni">
 						<br>
