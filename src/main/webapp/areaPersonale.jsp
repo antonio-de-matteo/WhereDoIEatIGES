@@ -90,6 +90,7 @@
 								<th>Commento</th>
 								<th>Locale</th>
 								<th>Cliente</th>
+								<th>&nbspValutazione&nbsp</th>
 							</tr>
 							<%
 								ArrayList<?> recensioni1 = (ArrayList<?>) request.getAttribute("recensioni");
@@ -115,8 +116,125 @@
 									} %>
 								<td id="td"><%=nome%></td>
 								<td id="td"><%=bean.getPersonaUsername()%></td>
+								<td id="td">
+								<%
+								for(int i=0; i<bean.getValutazione();i++)
+								{
+								%>
+								&#9733
+								<%
+									}
+								%>
+								</td>
+
 							</tr>
 							<%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 									}
 								}
 							%>
@@ -131,7 +249,7 @@
 								<th>Valutazione</th>
 								<th>Commento</th>
 								<th>Locale</th>
-								<th></th>
+								<th>&nbspValutazione&nbsp</th>
 							</tr>
 							<%
 								ArrayList<?> recensioni = (ArrayList<?>) request.getAttribute("recensioni");
@@ -155,6 +273,15 @@
 											nome=b.getNome();
 										} %>
 								<td id="td"><%=nome%></td>
+								<td id="td">
+									<%
+										for(int i=0; i<bean.getValutazione();i++)
+										{%>
+									&#9733
+									<%
+										}
+									%>
+								</td>
 							</tr>
 							<%
 									}
