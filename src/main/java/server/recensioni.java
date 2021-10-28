@@ -36,7 +36,7 @@ public class recensioni extends HttpServlet {
 		String user=request.getParameter("user");
 		RecensioneDAO dao= new RecensioneDAO();
 		try {
-			if(request.getParameter("action").equals("g")){
+			if(request.getParameter("action")!=null && request.getParameter("action").equals("g")){
 				ArrayList<RecensioneBean> ret= dao.doRetriveByOwner(user);
 				request.setAttribute("recensioni",ret);
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/areaPersonale.jsp");

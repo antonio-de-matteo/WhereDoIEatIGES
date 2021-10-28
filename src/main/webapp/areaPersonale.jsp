@@ -103,6 +103,7 @@
 							<tr>
 								<%
 									RecensioneBean bean = (RecensioneBean) it.next();
+
 								%>
 								<td id="td"><%=bean.getValutazione()%></td>
 								<td id="td"><%=bean.getCommento() %></td>
