@@ -89,7 +89,7 @@
 								<th>Valutazione</th>
 								<th>Commento</th>
 								<th>Locale</th>
-								<th></th>
+								<th>Cliente</th>
 							</tr>
 							<%
 								ArrayList<?> recensioni1 = (ArrayList<?>) request.getAttribute("recensioni");
@@ -114,6 +114,7 @@
 											nome=b.getNome();
 									} %>
 								<td id="td"><%=nome%></td>
+								<td id="td"><%=bean.getPersonaUsername()%></td>
 							</tr>
 							<%
 									}
