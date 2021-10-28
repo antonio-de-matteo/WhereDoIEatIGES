@@ -36,10 +36,18 @@ public class recensioni extends HttpServlet {
 		String user=request.getParameter("user");
 		RecensioneDAO dao= new RecensioneDAO();
 		try {
-			ArrayList<RecensioneBean> ret= dao.doRetriveByUser(user);
-			request.setAttribute("recensioni",ret);
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/areaPersonale.jsp");
-			dispatcher.forward(request, response);
+			if(request.getParameter("action").equals("g")){
+				ArrayList<RecensioneBean> ret= dao.doRetriveByOwner(user);
+				request.setAttribute("recensioni",ret);
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/areaPersonale.jsp");
+				dispatcher.forward(request, response);
+			}
+			else {
+				ArrayList<RecensioneBean> ret = dao.doRetriveByUser(user);
+				request.setAttribute("recensioni", ret);
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/areaPersonale.jsp");
+				dispatcher.forward(request, response);
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
