@@ -54,7 +54,7 @@
 						data-toggle="tab" class="nav-link menu">Cambia Password</a></li>
 						<li class="nav-item menu"><a href="" data-target="#modifica"
 						data-toggle="tab" class="nav-link menu">Modifica Dati Personali</a></li>
-						<li class="nav-item menu"><a href="" data-target="#recensioni"
+						<li class="nav-item menu"><a href="recensioni?user=<%=utq.getUsername()%>" data-target="#recensioni"
 						data-toggle="tab" class="nav-link menu">Vecchi Commenti</a></li>
 				</ul>
 				<div class="tab-content  p-b-3">
@@ -90,7 +90,6 @@
 								AttivitaDAO daor=new AttivitaDAO();
 								ArrayList<AttivitaBean> listr=new ArrayList<AttivitaBean>();
 								listr=daor.doRetrieveAll();
-								//Cart cart = (Cart) request.getAttribute("cart");  O CARRELL
 								if (recensioni != null && recensioni.size() != 0) {
 									Iterator<?> it = recensioni.iterator();
 									while (it.hasNext()) {
