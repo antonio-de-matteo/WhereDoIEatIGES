@@ -26,7 +26,7 @@ public class servletPreferiti extends HttpServlet {
         ArrayList<AttivitaBean> attivita = new ArrayList<>();
         PreferitiDAO pdao = new PreferitiDAO();
         PersonaBean user=(PersonaBean)request.getSession().getAttribute("cliente");
-        if(request.getParameter("action").equals("pref")){
+        if(request.getParameter("action")!=null && request.getParameter("action").equals("pref")){
             ArrayList<PreferitiBean> preferiti = null;
             try {
                 preferiti = pdao.doRetrieveByUser(user.getUsername());
