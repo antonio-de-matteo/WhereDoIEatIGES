@@ -299,7 +299,8 @@ rList=rdao.doRetrieveAll(a.getIdAttivita());%>
     							RecensioneBean r1=new RecensioneBean();
     							r1=rList.get(i);
   							%>
-                    <label for="inputMessage"><%=r1.getPersonaUsername() %> :</label>
+                    <label for="inputMessage"><%=r1.getPersonaUsername()%>
+                    <% for (int j=0;j<r1.getValutazione();j++){%>&#9733<%}%></label>
                     <textarea class="form-control BORDOGRIGIO" rows="4" readonly><%=r1.getCommento() %></textarea>
                     <br>
                  <%} %>
