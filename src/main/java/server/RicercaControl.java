@@ -55,6 +55,7 @@ public class RicercaControl extends HttpServlet {
 						String categoria = request.getParameter("cat");
 						ArrayList<AttivitaBean> list=AttivitaDAO.doRetrieveByCategoria(categoria);
 						request.setAttribute("lista",list) ;
+						request.setAttribute("cat",categoria);
 						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ListaAttivita.jsp");
 						dispatcher.forward(request, response);
 					}
