@@ -51,7 +51,7 @@ public class TestSuggerimentiDAO extends TestCase{
 		s2=new SuggerimentiBean(27, "ciao", "il problema è questo", "tanucc");
 		list.add(s2);
 		list.add(s);
-		assertEquals(list, tester.doRetrieveAll());
+		assertEquals(list, tester.doRetrieveAll())   ;
 	}
 	
 	@Test
