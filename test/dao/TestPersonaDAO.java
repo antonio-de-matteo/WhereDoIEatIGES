@@ -23,7 +23,7 @@ public class TestPersonaDAO extends TestCase{
    @Before
    public void setUp() throws Exception {
 	   super.setUp();
-	   persona=new PersonaBean("lapulce10","Lionel","Messi","lapulce10@gmail.com","393404181948","Barcelona",1,"barca","lapulce");
+	   persona=new PersonaBean("lapulce10","Lionel","Messi","lapulce10@gmail.com","393404181948","Barcelona",1,"barca","ab682163bedf8e606edc39c02f6cc8ef5a8b6959");
 	   tester.doSave(persona);
    }
    
