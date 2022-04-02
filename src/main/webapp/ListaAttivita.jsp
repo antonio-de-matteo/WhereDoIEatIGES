@@ -14,10 +14,10 @@
  
 <%@ include file="header.jsp"%>
 <%String cat =(String) request.getAttribute("cat");
-if(cat!=null)
+if(cat!=null){
 	%>
 <h2> <%=cat%></h2>
-<%
+<%      }
 %>
 <div class="row">
 <%ArrayList<AttivitaBean> l = new ArrayList<AttivitaBean>();
