@@ -86,8 +86,27 @@ public class TestFotoDAO extends TestCase{
 		list.add(f2);
 		f2=new FotoBean("fotodb/ristorante1.jpg", 3);
 		list.add(f2);
-		
-		
+		f2=new FotoBean("fotodb/ceci.jpg", 4);
+		list.add(f2);
+		f2=new FotoBean("fotodb/toto.jpg", 4);
+		list.add(f2);
+		f2=new FotoBean("fotodb/zuppa.jpg", 4);
+		list.add(f2);
+		f2=new FotoBean("fotodb/foodSA.jpg", 5);
+		list.add(f2);
+		f2=new FotoBean("fotodb/foodSA1.jpg", 5);
+		list.add(f2);
+		f2=new FotoBean("fotodb/foodSA2.jpg", 5);
+		list.add(f2);
+		f2=new FotoBean("fotodb/aperitivo.jpg", 6);
+		list.add(f2);
+		f2=new FotoBean("fotodb/aperitivo1.jpg", 6);
+		list.add(f2);
+		f2=new FotoBean("fotodb/aperitivo2.jpg", 6);
+		list.add(f2);
+		f2=new FotoBean("FotoADM", 99);
+		list.add(f2);
+
 		System.out.println(tester.doRetrieveByKey(f.getFoto()).getFoto());
 		assertEquals(list, tester.doRetrieveAll());
 	}
@@ -101,6 +120,15 @@ public class TestFotoDAO extends TestCase{
 		list.add(f2);
 		f2=new FotoBean("fotodb/imagesILV4I6JR.jpg", 3);
 		list.add(f2);
+		f2=new FotoBean("fotodb/ceci.jpg", 4);
+		list.add(f2);
+		f2=new FotoBean("fotodb/foodSA.jpg", 5);
+		list.add(f2);
+		f2=new FotoBean("fotodb/aperitivo.jpg", 6);
+		list.add(f2);
+		f2=new FotoBean("FotoADM", 99);
+		list.add(f2);
+
 		assertEquals(list, tester.doRetrieveGroupby());
 	}
 

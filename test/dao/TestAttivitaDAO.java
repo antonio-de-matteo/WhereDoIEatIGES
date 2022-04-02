@@ -2,6 +2,8 @@ package dao;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,7 +21,7 @@ public class TestAttivitaDAO extends TestCase{
     @Before
 	public void setUp() throws Exception {
     	super.setUp();
-		a4=new AttivitaBean(0, "pojo restaurant", "Salerno", 12, 15, "Lunedi", "via sistemi distribuiti", "00000", 50, "fsfsf", "elpojo");
+		a4=new AttivitaBean(0, "pojo restaurant", "Salerno", 12, 15, "Lunedi", "via sistemi distribuiti", "00000", 50, "fsfsf", "elpojo", "Ristorante");
 		tester.doSave(a4);
 		ArrayList<AttivitaBean> list=new ArrayList<AttivitaBean>();
 		list=tester.doRetrieveAll();
@@ -41,14 +43,23 @@ public class TestAttivitaDAO extends TestCase{
 	@Test
 	public void testDoRetrieveAll() throws SQLException {
 		ArrayList<AttivitaBean> list2=new ArrayList<AttivitaBean>();
-		AttivitaBean a=new AttivitaBean(1, "El pampa Sosa", "Fisciano", 13, 23, "Mercoledi", "via bomber", "39340412122", 200, "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.9426235718774!2d14.769572615021944!3d40.67523314780173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133bc239baaf7187%3A0x9cae3635339ffee0!2sSalerno%20Stazione!5e0!3m2!1sit!2sit!4v1577092641285!5m2!1sit!2sit", "amecuomo");
+		AttivitaBean a=new AttivitaBean(1, "El pampa Sosa", "Fisciano", 13, 23, "Mercoledi", "via bomber", "39340412122", 200, "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.9426235718774!2d14.769572615021944!3d40.67523314780173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133bc239baaf7187%3A0x9cae3635339ffee0!2sSalerno%20Stazione!5e0!3m2!1sit!2sit!4v1577092641285!5m2!1sit!2sit", "amecuomo", "pub");
 		list2.add(a);
-		a=new AttivitaBean(2, "Numero1", "Baronissi", 19, 24, "Lunedi", "Via numero 1", "123213123", 90, "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.4536055228923!2d14.79028741502506!3d40.77404084175542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133bc5a5fb14b909%3A0x38886a101e6824ee!2sFisciano%20(Universit%C3%A0)!5e0!3m2!1sit!2sit!4v1577093098487!5m2!1sit!2sit", "toni9");
+		a=new AttivitaBean(2, "Numero1", "Baronissi", 19, 24, "Lunedi", "Via numero 1", "123213123", 90, "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.4536055228923!2d14.79028741502506!3d40.77404084175542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133bc5a5fb14b909%3A0x38886a101e6824ee!2sFisciano%20(Universit%C3%A0)!5e0!3m2!1sit!2sit!4v1577093098487!5m2!1sit!2sit", "toni9", "Pub");
 		list2.add(a);
-		a=new AttivitaBean(3, "El pocho di Salerno", "Salerno", 19, 24, "Lunedi", "via Roma", "4324322", 110, "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.6707045574185!2d14.76813671502418!3d40.74727084339462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133bc43e1a9c404b%3A0x7f2d39e1b567aa1!2sBaronissi%20Municipio!5e0!3m2!1sit!2sit!4v1577093153931!5m2!1sit!2sit", "amecuomo");
+		a=new AttivitaBean(3, "El pocho di Salerno", "Salerno", 19, 24, "Lunedi", "via Roma", "4324322", 110, "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.6707045574185!2d14.76813671502418!3d40.74727084339462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133bc43e1a9c404b%3A0x7f2d39e1b567aa1!2sBaronissi%20Municipio!5e0!3m2!1sit!2sit!4v1577093153931!5m2!1sit!2sit", "amecuomo", "Ristorante");
+		list2.add(a);
+		a=new AttivitaBean(4, "DaTotò", "Roccadaspide", 18, 22, "Martedì", "via soldi", "24643", 150, "https://maps.google.com/maps?width=700&amp;height=440&amp;hl=en&amp;q=Roccoadaspide%2Cvia%20santa%20palomba+(Da%20toto)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=B&amp;output=embed", "A_DeMatteo", "Pizzeria");
+		list2.add(a);
+		a=new AttivitaBean(5, "FoodSA", "SanCipriano", 20, 24, "Domenica", "via tenente colombo", "24243243", 110, "https://maps.google.com/maps?width=700&amp;height=440&amp;hl=en&amp;q=San%20cipriano%20picentino%2C%20via%20vigna+(Titolo)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=B&amp;output=embed", "A_DeMatteo", "Vegan");
+		list2.add(a);
+		a=new AttivitaBean(6, "Food&Beverage", "Agropoli", 19, 23, "Lunedì", "Lungomare Caracciolo", "089763203", 30, "https://maps.google.com/maps?width=700&amp;height=440&amp;hl=en&amp;q=agropoli%2C%20lungomare+(Titolo)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=B&amp;output=embed", "A_DeMatteo", "Rosticceria");
+		list2.add(a);
+		a=new AttivitaBean(99, "ADM_Food", "Salerno", 15, 20, "Sabato", "Via Sala Abbagnano", "393583214320", 66, "https://jdihsdhwidw.wjdnqqwiufdhwiufew.kidfe.it", "amecuomo", "Vegan");
 		list2.add(a);
 		list2.add(a4);
-		assertEquals(list2, tester.doRetrieveAll());
+		List<AttivitaBean> x = AttivitaDAO.doRetrieveAll();
+		assertEquals(list2, x);
 	}
 	
 	

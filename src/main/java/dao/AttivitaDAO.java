@@ -79,6 +79,7 @@ public class AttivitaDAO {
 				a.setNumPosti(res.getInt("numPosti"));
 				a.setMappa(res.getString("mappa"));
 				a.setPersonaUsername(res.getString("personaUsername"));
+				a.setCategoria(res.getString("Categoria"));
 				return a;
 			}
 
@@ -179,8 +180,6 @@ public class AttivitaDAO {
 
 			while (rs.next()) {
 				AttivitaBean bean = new AttivitaBean();
-
-
 				bean.setIdAttivita(rs.getInt("idAttivita"));
 				bean.setNome(rs.getString("nome"));
 				bean.setComune(rs.getString("comune"));
@@ -192,6 +191,7 @@ public class AttivitaDAO {
 				bean.setNumPosti(rs.getInt("numPosti"));
 				bean.setMappa(rs.getString("mappa"));
 				bean.setPersonaUsername(rs.getString("personaUsername"));
+				bean.setCategoria(rs.getString("Categoria"));
 
 				a.add(bean);
 			}
@@ -320,6 +320,7 @@ public class AttivitaDAO {
 				bean.setNumPosti(rs.getInt("numPosti"));
 				bean.setMappa(rs.getString("mappa"));
 				bean.setPersonaUsername(rs.getString("personaUsername"));
+				bean.setCategoria(rs.getString("Categoria"));
 
 				a.add(bean);
 			}
@@ -354,7 +355,6 @@ public class AttivitaDAO {
 			while (rs.next()) {
 				AttivitaBean bean = new AttivitaBean();
 
-
 				bean.setIdAttivita(rs.getInt("idAttivita"));
 				bean.setNome(rs.getString("nome"));
 				bean.setComune(rs.getString("comune"));
@@ -366,7 +366,7 @@ public class AttivitaDAO {
 				bean.setNumPosti(rs.getInt("numPosti"));
 				bean.setMappa(rs.getString("mappa"));
 				bean.setPersonaUsername(rs.getString("personaUsername"));
-
+				bean.setCategoria(rs.getString("Categoria"));
 				a.add(bean);
 			}
 
@@ -411,6 +411,7 @@ public class AttivitaDAO {
 				bean.setNumPosti(rs.getInt("numPosti"));
 				bean.setMappa(rs.getString("mappa"));
 				bean.setPersonaUsername(rs.getString("personaUsername"));
+				bean.setCategoria(rs.getString("Categoria"));
 			}
 
 

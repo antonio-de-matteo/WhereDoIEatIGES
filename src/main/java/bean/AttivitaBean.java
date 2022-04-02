@@ -230,7 +230,7 @@ public class AttivitaBean {
 		return "AttivitaBean [idAttivita=" + idAttivita + ", nome=" + nome + ", comune=" + comune + ", oraApertura="
 				+ oraApertura + ", oraChiusura=" + oraChiusura + ", giornoChiusura=" + giornoChiusura + ", indirizzo="
 				+ indirizzo + ", telefono=" + telefono + ", numPosti=" + numPosti + ", mappa=" + mappa
-				+ ", personaUsername=" + personaUsername + "]";
+				+ ", personaUsername=" + personaUsername + ", categoria=" + categoria + "]";
 	}    
     
 }

@@ -16,10 +16,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith; 
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-
-import org.powermock.core.PowerMockUtils;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 
 import bean.AttivitaBean;
@@ -55,7 +52,6 @@ public class TestAggiungiAttivitaControl {
 	public void setUp() {
 
 		MockitoAnnotations.initMocks(this);
-		//PowerMockito.mockStatic(AttivitaDAO.class);
 		servlet=new AggiungiAttivitaControl();
 		when(req.getSession()).thenReturn(session);
 		servlet.setADao(adao);
@@ -88,7 +84,7 @@ public class TestAggiungiAttivitaControl {
 		when(req.getParameter("mappa")).thenReturn("sofhsviusb/OihnuiB/OBNouI/OuHBNOU/OB/O");
 		PersonaBean p=new PersonaBean("toni9", "Luca", "Toni", "toniluca9@gmail.com", "393453456789", "Firenze", 2, "casigliolo", "Mistersessa69");
 		when(req.getSession().getAttribute("cliente")).thenReturn(p);
-		ArrayList<AttivitaBean> list=new ArrayList<AttivitaBean>();
+		ArrayList<AttivitaBean> list=new ArrayList<>();
 		AttivitaBean a=new AttivitaBean();
 		a.setComune(req.getParameter("comune"));
 		a.setNome(req.getParameter("nome"));
