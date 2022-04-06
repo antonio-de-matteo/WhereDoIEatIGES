@@ -45,12 +45,13 @@ public class PersonaDAO {
 
 		GFG gfg = new GFG();
 		String s1 = "MisterSessa69";
-		System.out.println("\n" + s1 + " : " + gfg.toHexString(gfg.getSHA(s1)));
+		System.out.println("\n" + s1 + " : " + gfg.toHexString(gfg.getSHA(p.getPassword())));
+		String passs = gfg.toHexString(gfg.getSHA(p.getPassword()));
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
 		String insertSQL = "insert into persona" 
-				+ " (username, nome, cognome , email, telefono, citta, tipo, comune, password) values (?, ?, ?, ?, ?, ?, ?, ?, sha(?))";
+				+ " (username, nome, cognome , email, telefono, citta, tipo, comune, password) values (?, ?, ?, ?, ?, ?, ?, ?, ? )";
 
 		try {
 			connection = DriverManagerConnectionPool.getConnection();
@@ -63,7 +64,8 @@ public class PersonaDAO {
 			preparedStatement.setString(6, p.getCitta());
 			preparedStatement.setInt(7, p.getTipo());
 			preparedStatement.setString(8, p.getComune());
-			preparedStatement.setString(9, p.getPassword());
+			preparedStatement.setString(9, passs);
+
 			preparedStatement.executeUpdate();
 
 			connection.commit();
@@ -234,17 +236,23 @@ public class PersonaDAO {
 		return p;
 	}
 	
-	public synchronized PersonaBean doRetrieveByLogin(String username, String password){
-		 
+	public synchronized PersonaBean doRetrieveByLogin(String username, String password) {
+		GFG gfg = new GFG();
 		 Connection conn = null;
 		 PreparedStatement ps = null;
-		 try {
+		 String passs = "";
+		try {
+			passs = gfg.toHexString(gfg.getSHA(password));
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+		try {
 			PersonaBean p = new PersonaBean(username); 
 			conn = DriverManagerConnectionPool.getConnection();
 			ps = conn.
-					prepareStatement("SELECT * FROM wheredoieat.persona WHERE username = ? AND password = sha(?)");
+					prepareStatement("SELECT * FROM wheredoieat.persona WHERE username = ? AND password = ?");
 			ps.setString(1, username);
-			ps.setString(2, password);
+			ps.setString(2, passs);
 					
 			ResultSet res = ps.executeQuery();
 
