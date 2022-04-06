@@ -56,6 +56,11 @@ public class TestPiattiDAO extends TestCase{
 		list.add(p2);
 		p2=new PiattiBean(7, "tagliata di carne", "carne servita con contorni tipici della zona", 3);
 		list.add(p2);
+		p2=new PiattiBean(8, "zuppa di legumi", "legumi della campagna cotti in una buonissima zuppa di verdure", 4);
+		list.add(p2);
+		p2=new PiattiBean(9, "zuppa di ceci", "zuppa di ceci biologici", 4);
+		list.add(p2);
+
 		list.add(p);
 		assertEquals(list, tester.doRetrieveAll());
 	}

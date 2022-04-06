@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import bean.PrenotazioneBean;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -43,6 +44,9 @@ public class TestPreferitiDAO extends TestCase{
 	@Test
 	public void testDoRetrieveAll() throws SQLException {
 		ArrayList<PreferitiBean> list=new ArrayList<PreferitiBean>();
+		PreferitiBean p2=new PreferitiBean("amecuomo",4);
+		p2.setIdPref(78);
+		list.add(p2);
 		list.add(p);
 		assertEquals(list, tester.doRetrieveAll());
 	}
