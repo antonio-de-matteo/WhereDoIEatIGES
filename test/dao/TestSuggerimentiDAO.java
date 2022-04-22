@@ -44,12 +44,6 @@ public class TestSuggerimentiDAO extends TestCase{
 		ArrayList<SuggerimentiBean> list=new ArrayList<SuggerimentiBean>();
 		SuggerimentiBean s2=new SuggerimentiBean(22, "recensioni non funzionanti", " jvhsdkvbhjsvbjs vbsvbsdk vhsdkjvbhdj fv svsd fsvd fsd bsdfb sdfb dsfbds b s dfb sdbdfb sdb sdbd", "tanucc");
 		list.add(s2);
-		s2=new SuggerimentiBean(24, "problema home", " jvhsdkvbhjsvbjs vbsvbsdk vhsdkjvbhdj fv svsd fsvd fsd bsdfb sdfb dsfbds b s dfb sdbdfb sdb sdbd ds fasg ag ds gsdhsh sdh shbsv dfsb sdfb sdfb sfdbfsdbfdsb sfdbsfbsdfbsdfbsdf b", "tanucc");
-		list.add(s2);
-		s2=new SuggerimentiBean(26, "pizzerie non presenti", "non ci sono pizzerie sul sito", "tanucc");
-		list.add(s2);
-		s2=new SuggerimentiBean(27, "ciao", "il problema è questo", "tanucc");
-		list.add(s2);
 		list.add(s);
 		assertEquals(list, tester.doRetrieveAll())   ;
 	}

@@ -14,9 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith; 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 
 import bean.AttivitaBean;
@@ -28,6 +30,8 @@ import server.AggiungiAttivitaControl;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(AttivitaDAO.class)
+@PowerMockIgnore("org.apache.http.conn.ssl.*")
+//@PowerMockIgnore("javax.net.ssl.*")
 public class TestAggiungiAttivitaControl {
 	@Mock
 	HttpServletRequest req;
@@ -50,7 +54,6 @@ public class TestAggiungiAttivitaControl {
 	
 	@Before
 	public void setUp() {
-
 		MockitoAnnotations.initMocks(this);
 		servlet=new AggiungiAttivitaControl();
 		when(req.getSession()).thenReturn(session);
@@ -59,7 +62,7 @@ public class TestAggiungiAttivitaControl {
 	}
 	
 	@Test
-	public void oraErrata() throws ServletException, IOException {
+	public void oraErrata() throws ServletException, IOException, SQLException {
 		when(req.getParameter("oraApertura")).thenReturn("18");
 		when(req.getParameter("oraChiusura")).thenReturn("16");
 		when(req.getAttribute("errore")).thenReturn(true);
@@ -72,7 +75,6 @@ public class TestAggiungiAttivitaControl {
 
 	@Test
 	public void aggiuntaAttOk() throws SQLException, ServletException, IOException  {
-		
 		when(req.getParameter("oraApertura")).thenReturn("15");
 		when(req.getParameter("oraChiusura")).thenReturn("22");
 		when(req.getParameter("nome")).thenReturn("King kebab");
@@ -99,7 +101,12 @@ public class TestAggiungiAttivitaControl {
 		a.setTelefono(req.getParameter("telefono"));
 		a.setIdAttivita(1);
 		list.add(a);
-		when(AttivitaDAO.doRetrieveAll()).thenReturn(list);
+		try {
+			when(adao.doRetrieveAll()).thenReturn(list);
+		}
+		catch(Exception e){
+
+		}
 		when(req.getParameter("foto")).thenReturn("fotodb/ciao.jpg");
 		when(req.getAttribute("successo")).thenReturn(true);
 		when(req.getRequestDispatcher("/aggiungiAttivita.jsp")).thenReturn(rd);

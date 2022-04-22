@@ -198,11 +198,11 @@ public class AttivitaDAO {
 
 		} finally {
 			try {
-				if (preparedStatement != null)
-					preparedStatement.close();
+				if (preparedStatement != null);
+					//preparedStatement.close();
 			} finally {
-				if (connection != null)
-					connection.close();
+				if (connection != null);
+					//connection.close();
 			}
 		}
 		return a;

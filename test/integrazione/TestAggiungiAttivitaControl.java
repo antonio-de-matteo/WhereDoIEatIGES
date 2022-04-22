@@ -19,6 +19,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith; 
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 
 import bean.AttivitaBean;
@@ -29,6 +30,7 @@ import server.AggiungiAttivitaControl;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(AttivitaDAO.class)
+@PowerMockIgnore("javax.net.ssl.*")
 public class TestAggiungiAttivitaControl {
 	@Mock
 	HttpServletRequest req;
