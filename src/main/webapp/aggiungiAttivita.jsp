@@ -70,13 +70,18 @@
           } if($("#comune").val().length>20) {
         	  alert("Il campo comune non puo' avere una lugnhezza >20");
         	  return false;
-          } 
+          }
+
+          if($("#cat").val().length=6){
+              alert("Scegliere una categoria valida");
+              return false;
+          }
+
           if(!(validaFormatoComune($("#comune").val())) ){
         	  alert("Il campo comune non rispetta il formato");
         	  return false;
     	  }
-        	                  
-          
+
           if($("#telefono").val().length<1) {
         	  alert("Il campo telefono non pu' essere vuoto");
         	  return false;
@@ -99,8 +104,8 @@
 	    	  alert("Il campo del numero dei posti non può essere >10000.");
 	    	  return false;
 	      }
-	      
-	      
+
+
       		return true;
           }
      
@@ -192,7 +197,8 @@
                     <input type="text" name="foto" class="BORDONERO">
                     <br>
                     <label for="inputMessage">Categoria:&nbsp&nbsp</label>
-                    <select name="cat" class="BORDONERO" required>
+                    <select name="cat" class="BORDONERO" id="cat" required>
+                        <option value ="cvuota"> Seleziona una categoria</option>
                         <option value="Ristorante">Ristorante</option>
                         <option value="Pizzeria">Pizzeria</option>
                         <option value="Pub">Pub</option>
